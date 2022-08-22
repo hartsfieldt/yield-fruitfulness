@@ -7,24 +7,35 @@
     <title>Java Script Fundamentals Quiz</title>
     <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
+
 <body>
-    <aside class="high-scores aside">View High Score</aside>
-    <aside class="timer aside"></aside>
-    <main class="container center">
-        <header>
-            <h1>Coding Quiz Challenge</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id deserunt dolor ex a ratione!
-                Non ipsa qui officia consectetur, deserunt pariatur eos expedita, vel doloribus quibusdam
-                minima temporibus, possimus in.
-            </p>
-            <button class="btn" id="start-quiz">Start Quiz</button>
-        </header>
-        <section class="page-content">
-            <h2 class="question" id="question"></h2>
-                 <ul class="responses response-styles">
-                </ul>
-        </section>
+    <header>
+        <a>View High Score</a>
+        <p id="timer">Test</p>
+    </header>
+    <main class="container">
+        <h1>Coding Quiz Challenge</h1>
+        <p class="container-contents">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id deserunt dolor ex a ratione!
+            Non ipsa qui officia consectetur, deserunt pariatur eos expedita, vel doloribus quibusdam
+            minima temporibus, possimus in.
+        </p>
+        <div class="start-btn container-contents">
+            <button class="btn" id="start-btn">Start Quiz</button>
+        </div>
     </main>
+    <section class="container quiz">
+        <h1 class="question">Question</h1>
+        <div class="answers">
+            <button id="answer-one" data-answer="incorrect"></button>
+            <br>
+            <button id="answer-two" data-answer="correct"></button>
+            <br>
+            <button id="answer-three" data-answer="incorrect"></button>
+            <br>
+            <button id="answer-four" data-answer="incorrect"></button>
+            <br>
+        </div>
+    </section>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
