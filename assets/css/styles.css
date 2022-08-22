@@ -9,7 +9,7 @@ header {
     text-align: left;
     color: plum;
     justify-content: center;
-    max-width: 700px;
+    font-size: 20px;
 }
 
 header p {
@@ -20,23 +20,20 @@ header p {
 .container {
     display: flex;
     flex-wrap: wrap;
-    margin: 40px;
-    max-width: 700px;
-    align-items: center;
 }
 
 .container h1 {
-    width: 100%;
-    align-items: center;
+    text-align: center;
 }
+
 .container-contents {
     justify-content: center;
     width: 100%;
-    max-width: 750px;
-    height: auto;
-    text-align: center;
+    height: 100px;
     padding: 10px;
-    align-items: center;
+    margin-left: 160px;
+    margin-right: 100px;
+    margin-bottom: 10px;
 }
 
 .btn {
@@ -44,5 +41,8 @@ header p {
     background-color: navy;
     color: plum;
     border-radius: 15px;
-    position: fixed;
 }
+
+.center {
+    position: absolute;
+  }
