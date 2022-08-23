@@ -4,9 +4,9 @@ var timerEl = document.getElementById("timer");
 var questionHeader = document.getElementById("question-header");
 var mainPage = document.getElementById("main-page");
 var quizPage = document.getElementById("quiz-page");
-var quizButtons = document.querySelector(".answers");
-var question = document.querySelector(".question")
-var choiceContainer = document.querySelector(".answers")
+var quizButtons = document.querySelector(".answers");// everything above is correct //
+
+var timeLeft = 100;
 
 var quizList = [
     {
@@ -38,23 +38,19 @@ var quizList = [
 var startButton = document.getElementById("start-btn");
 startButton.addEventListener("click", quizStarted);
 
-document.querySelector(".quiz").hidden = true;
-
 function quizStarted () {
     mainPage.classList.add("hide");
     quizPage.classList.remove("hide");
-    countdown();
     generateQuestions();
 }
 
 function generateQuestions () {
-    console.log("Generating questions...");
     var currentQuestion  = quizList[questionIndex];
     questionIndex.textContent = currentQuestion.question;
     choiceContainer.innerHTML =  "";
 
     for (var i = 0; i < currentQuestion.choices.length; i++) {
-    var choice = currentQuestion.choices[i];
+    var choiceOptions = currentQuestion.choices[i];
     var choiceElement = document.createElement("button");
     choiceElement.setAttribute("class", "btn");
     choiceElement.setAttribute("value", "choice");
@@ -69,20 +65,19 @@ var nextQuestion = function() {
     questionIndex++;
 }
 
-function countdown() {
-    var timeLeft = 75;
-    var timeInterval = setInterval(function () {
-        if (timeLeft > 1) {
-          timerEl.textContent = timeLeft + " seconds remaining";
-          timeLeft--;
+
+var timeInterval = setInterval (function() {
+    if (timeLeft > 1) {
+        timerEl.textContent = timeLeft + " seconds remaining";
+        timeLeft--;
         } else if (timeLeft === 1) {
-          timerEl.textContent = timeLeft + " seconds remaining";
-          timeLeft--;
+        timerEl.textContent = timeLeft + " seconds remaining";
+        timeLeft--;
         } else {
           timerEl.textContent = "Your time is up.";
           clearInterval(timeInterval);
     }
-    }, 1000);
-}
+}, 1000);
+
 
 
