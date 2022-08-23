@@ -1,31 +1,12 @@
-var timerEl = document.getElementById("timer");
-var questionHeader = document.getElementById("question-header");
 var questionIndex = 0;
 
+var timerEl = document.getElementById("timer");
+var questionHeader = document.getElementById("question-header");
+var mainPage = document.getElementById("main-page");
+var quizPage = document.getElementById("quiz-page");
 var quizButtons = document.querySelector(".answers");
-
-var startButton = document.getElementById("start-btn");
-startButton.addEventListener("click", quizStarted);
-
-document.querySelector(".quiz").hidden = true;
-
-function quizStarted () {
-    document.querySelector(".main").hidden = true;
-    document.querySelector(".quiz").hidden = false;
-    countdown();
-    generateQuestion();
-}
-
-function generateQuestions () {
-    document.querySelector(".questions").textContent = questionArray[questionList].quizStarted
-    document.querySelector("#answer-one").textContent = questionArray[questionList].quizStarted
-    document.querySelector("#answer-two").textContent = questionArray[questionList].quizStarted
-    document.querySelector("#answer-three").textContent = questionArray[questionList].quizStarted
-    document.querySelector("#answer-four").textContent = questionArray[questionList].quizStarted
-}
-
-quizButton.addEventListener("click", nextQuestion);
-
+var question = document.querySelector(".question")
+var choiceContainer = document.querySelector(".answers")
 
 var quizList = [
     {
@@ -54,14 +35,42 @@ var quizList = [
     }
 ]
 
-questionHeader.innerHTML = questions[0].question
+var startButton = document.getElementById("start-btn");
+startButton.addEventListener("click", quizStarted);
 
-var nextQuestion = function() {
-    questionIndex++;
+document.querySelector(".quiz").hidden = true;
+
+function quizStarted () {
+    mainPage.classList.add("hide");
+    quizPage.classList.remove("hide");
+    countdown();
+    generateQuestions();
 }
 
+function generateQuestions () {
+    console.log("Generating questions...");
+    var currentQuestion  = quizList[questionIndex];
+    questionIndex.textContent = currentQuestion.question;
+    choiceContainer.innerHTML =  "";
+
+    for (var i = 0; i < currentQuestion.choices.length; i++) {
+    var choice = currentQuestion.choices[i];
+    var choiceElement = document.createElement("button");
+    choiceElement.setAttribute("class", "btn");
+    choiceElement.setAttribute("value", "choice");
+}
+}
+
+function nextQuestion (event) {
+    var answerButton = event.target;
+}
+
+// var nextQuestion = function() {
+//     questionIndex++;
+// }
+
 function countdown() {
-    var timeLeft = 5;
+    var timeLeft = 75;
     var timeInterval = setInterval(function () {
         if (timeLeft > 1) {
           timerEl.textContent = timeLeft + " minutes remaining";
