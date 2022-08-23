@@ -65,18 +65,18 @@ function nextQuestion (event) {
     var answerButton = event.target;
 }
 
-// var nextQuestion = function() {
-//     questionIndex++;
-// }
+var nextQuestion = function() {
+    questionIndex++;
+}
 
 function countdown() {
     var timeLeft = 75;
     var timeInterval = setInterval(function () {
         if (timeLeft > 1) {
-          timerEl.textContent = timeLeft + " minutes remaining";
+          timerEl.textContent = timeLeft + " seconds remaining";
           timeLeft--;
         } else if (timeLeft === 1) {
-          timerEl.textContent = timeLeft + " minutes remaining";
+          timerEl.textContent = timeLeft + " seconds remaining";
           timeLeft--;
         } else {
           timerEl.textContent = "Your time is up.";
