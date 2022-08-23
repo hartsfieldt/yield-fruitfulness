@@ -52,3 +52,11 @@ header p {
 .flex {
     display: flex;
 }
+
+.show {
+    display:flex;
+}
+
+.hide {
+    display: none;
+}

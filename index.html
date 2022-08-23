@@ -13,17 +13,18 @@
         <a>View High Score</a>
         <p id="timer">Test</p>
     </header>
-    <main class="container">
-        <h1 class="container-contents">Coding Quiz Challenge</h1>
-        <p class="container-contents">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id deserunt dolor ex a ratione!
-            Non ipsa qui officia consectetur, deserunt pariatur eos expedita, vel doloribus quibusdam
-            minima temporibus, possimus in.
-        </p>
-        <div class="start-btn container-contents flex-btn">
-            <button class="btn" id="start-btn">Start Quiz</button>
-        </div>
-    </main>
-        <section class="quiz container">
+    <main class="main">
+        <section class="container">
+            <h1 class="container-contents">Coding Quiz Challenge</h1>
+            <p class="container-contents">
+                Try to answer the following code-related questions within the time limit.
+                Keep in mind that incorrect answers will penalize your score/time by ten seconds.
+            </p>
+            <div class="start-btn container-contents flex-btn">
+                <button class="btn" id="start-btn">Start Quiz</button>
+            </div>
+        </section>
+        <section class="quiz container hide">
         <h1 class="question container-contents flex" id="question-header">Question</h1>
             <div class="answers container-contents">
                 <button id="answer-one btn" data-answer="incorrect"></button>
@@ -36,6 +37,7 @@
                 <br>
             </div>
         </section>
+    </main>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
