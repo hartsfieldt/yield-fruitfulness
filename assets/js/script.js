@@ -1,16 +1,20 @@
 var i = 0;
-var startQuiz = document.querySelector(".startquiz");
 var currentSection = "";
+var timeLeft = 10;
+
 //sections
 var infoSection = document.querySelector(".info");
 var quizSection = document.querySelector(".quiz");
 var resultsSection = document.querySelector(".results");
+
 //elements
+var startQuiz = document.querySelector(".startquiz");
 var answerBtn1 = document.querySelector(".answer1");
 var answerBtn2 = document.querySelector(".answer2");
 var answerBtn3 = document.querySelector(".answer3");
 var answerBtn4 = document.querySelector(".answer4");
 var questionEl = document.querySelector(".question");
+var countdownEl = document.querySelector(".countdown");
 
 var questions = [
   {
@@ -30,6 +34,14 @@ var questions = [
     correctAnswer: "Both A and B",
   },
 ];
+
+function timer() {
+  timeLeft--;
+  countdownEl.textContent = timeLeft;
+  if (timeLeft <= 0) {
+    currentSection = "results";
+  }
+}
 
 //upon load question, choices
 function sectionHandler() {
@@ -67,6 +79,8 @@ function quizHandler() {
 }
 
 function askQuestions() {
+  countdownEl.textContent = timeLeft;
+  countdownEl = setInterval(timer, 1000);
   answerBtn1.addEventListener("click", function () {
     checkAnswer(answerBtn1);
   });
@@ -100,7 +114,7 @@ function checkAnswer(element) {
   i++;
   if (i === questions.length) {
     window.alert("no more questions");
-    currentSection === "results";
+    currentSection = "results";
     sectionHandler();
   } else {
     questionHandler(i);
