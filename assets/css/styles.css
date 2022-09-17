@@ -1,17 +1,25 @@
 :root {
-    --primary-color: #551A8B;
-    --secondary-color: #CBC3E3;
-    --third-color: #FFFFFF;
-    --fourth-color: #000080;
+  --primary-color: #551a8b;
+  --secondary-color: #cbc3e3;
+  --third-color: #ffffff;
+  --fourth-color: #000080;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-header {
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+/* header {
     text-align: left;
     margin: 10px 20px;
     color: var(--secondary-color);
@@ -90,4 +98,4 @@ header a {
     width: 400px;
     height: 45px;
     padding: 15px;
-}
+} */
