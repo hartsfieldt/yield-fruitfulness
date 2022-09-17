@@ -10,25 +10,34 @@
 
 <body>
     <header>
-    <p>Time Remaining:<span class="countdown"></span></p>
+    <a href="./view-high-score.html">View High Score</a>
+    <p class="header-right">Time Remaining:  <span class="countdown"></span></p>
     </header>
-    <section class="info show">
-        <h1>Info</h1>
-        <button class="startquiz">Begin Quiz</button>
-    </section>
-    <section class="quiz hide">
-        <h2 class="question">Question</h2>
-        <button class="answer1">button1</button>
-        <button class="answer2">button2</button>
-        <button class="answer3">button3</button>
-        <button class="answer4">button4</button>
-    </section>
-    <section class="results hide">
-        <h2>Results</h2>
-    </section>
-    
+    <main class="main">
+        <section class="info show container">
+            <h1 class="container-content paragraph-text">
+                Try to answer the following code-related questions within the time limit. <br>
+                Keep in mind that incorrect answers will penalize your score/time by ten seconds.
+            </h1>
+            <div class="start-btn container flex-btn">
+                <button class="startquiz btn">Begin Quiz</button>
+            </div>
+        </section>
+        <section class="quiz hide container-content paragraph-text">
+            <h1 class="question flex-row">Question</h1>
+            <div class="container-contents" class="answers">
+                <button class="answer1 flex-btn btn">button1</button>
+                <button class="answer2 flex-btn btn">button2</button>
+                <button class="answer3 flex-btn btn">button3</button>
+                <button class="answer4 flex-btn btn">button4</button>
+            </div>
+        </section>
+        <section class="results hide container-content paragraph-text">
+            <h2>Results</h2>
+        </section>
+    </main> 
 
-
+<!--Below is original html that I wrote, I had to come back to this assignment after a few modules to complete it. I was behind-->
     <!-- <header>
         <a href="./view-high-score.html">View High Score</a>
         <p id="timer" class="header-right"></p>

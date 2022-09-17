@@ -1,6 +1,6 @@
 var i = 0;
 var currentSection = "";
-var timeLeft = 10;
+var timeLeft = 60;
 
 //sections
 var infoSection = document.querySelector(".info");
@@ -20,26 +20,60 @@ var questions = [
   {
     question: "Javascript is an _______ language?",
     answers: [
-      "object-oriented",
-      "objective-base",
-      "procedural",
-      "none of the above",
+      "A. Object-oriented",
+      "B. Objective-base",
+      "C. Procedural",
+      "D. None of the above",
     ],
-    correctAnswer: "object-oriented",
+    correctAnswer: "A. Object-oriented",
   },
   {
     question:
       "Which of the following keywords is used to define a variable in Javascript?",
-    answers: ["A. var", "B. let", "Both A and B", "none of the above"],
-    correctAnswer: "Both A and B",
+    answers: ["A. var", "B. let", "C. Both A and B", "D. None of the above"],
+    correctAnswer: "C. Both A and B",
+  },
+  {
+    question:
+      "Which of the following methods is used to access HTML elements using Javascript?",
+    answers: [
+      "A. getElementbyId()",
+      "B. getElementsByClassName()",
+      "C. Both A and B",
+      "D. None of the above",
+    ],
+    correctAnswer: "C. Both A and B",
+  },
+  {
+    question:
+      "Upon encountering empty statements, what does the Javascript Interpreter do?",
+    answers: [
+      "A. Throws an error",
+      "B. Ignores the statements",
+      "C. Gives a warning",
+      "D. none of the above",
+    ],
+    correctAnswer: "B. Ignores the statements",
+  },
+  {
+    question:
+      "Which of the following methods can be used to display data in some form using Javascript?",
+    answers: [
+      "A. document.write()?",
+      "B. console.log()",
+      "C. window.alert()",
+      "D. All of the above",
+    ],
+    correctAnswer: "D. All of the above",
   },
 ];
 
 function timer() {
-  timeLeft--;
-  countdownEl.textContent = timeLeft;
   if (timeLeft <= 0) {
     currentSection = "results";
+  } else {
+    timeLeft--;
+    countdownEl.textContent = timeLeft;
   }
 }
 
@@ -80,7 +114,7 @@ function quizHandler() {
 
 function askQuestions() {
   countdownEl.textContent = timeLeft;
-  countdownEl = setInterval(timer, 1000);
+  setInterval(timer, 1000);
   answerBtn1.addEventListener("click", function () {
     checkAnswer(answerBtn1);
   });
