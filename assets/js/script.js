@@ -175,11 +175,9 @@ function quizEnded() {
 
 submitButtonEL.addEventListener("click", function (event) {
   event.preventDefault();
-  var allScores = localStorage.getItem("allScores");
-  if (allScores === null) {
-    allScores = [];
-  } else {
-    allScores = JSON.parse(allScores);
+  var oldScore = JSON.parse(localStorage.getItem("scoreStore"));
+  if (oldScore === null) {
+    oldScore = Array();
   }
 
   var usersScore = timeLeft;
@@ -188,9 +186,8 @@ submitButtonEL.addEventListener("click", function (event) {
     name: usersInitials,
     score: usersScore,
   };
-  allScores.push(finalScore);
-  var newScore = JSON.stringify(allScores);
-  localStorage.setItem("allScores", newScore);
+  oldScore.push(finalScore);
+  localStorage.setItem("scoreStore", JSON.stringify(oldScore));
 });
 
 startQuiz.addEventListener("click", quizHandler);
