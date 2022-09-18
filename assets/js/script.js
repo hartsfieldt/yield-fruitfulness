@@ -1,6 +1,6 @@
 var i = 0;
 var currentSection = "";
-var timeLeft = 60;
+var timeLeft = 20;
 
 //sections
 var infoSection = document.querySelector(".info");
@@ -15,6 +15,7 @@ var answerBtn3 = document.querySelector(".answer3");
 var answerBtn4 = document.querySelector(".answer4");
 var questionEl = document.querySelector(".question");
 var countdownEl = document.querySelector(".countdown");
+var answerMsgEl = document.querySelector(".answermsg");
 
 var questions = [
   {
@@ -71,6 +72,7 @@ var questions = [
 function timer() {
   if (timeLeft <= 0) {
     currentSection = "results";
+    sectionHandler();
   } else {
     timeLeft--;
     countdownEl.textContent = timeLeft;
@@ -141,9 +143,10 @@ function questionHandler(i) {
 function checkAnswer(element) {
   correct = questions[i].correctAnswer;
   if (element.textContent === correct) {
-    window.alert("correct!");
+    answerMsg("Correct!");
   } else {
-    window.alert("incorrect");
+    answerMsg("Incorrect!");
+    timeLeft = timeLeft - 10;
   }
   i++;
   if (i === questions.length) {
@@ -153,6 +156,13 @@ function checkAnswer(element) {
   } else {
     questionHandler(i);
   }
+}
+
+function answerMsg(response) {
+  answerMsgEl.textContent = response;
+  setTimeout(function () {
+    answerMsgEl.textContent = null;
+  }, 2000);
 }
 
 startQuiz.addEventListener("click", quizHandler);
