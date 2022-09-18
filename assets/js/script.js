@@ -174,19 +174,23 @@ function quizEnded() {
 }
 
 submitButtonEL.addEventListener("click", function (event) {
-  event.preventDefault;
-  var oldScores = JSON.parse(localStorage.getItem(highscores));
-  if (oldScores === null) {
-    oldScores = Array();
+  event.preventDefault();
+  var allScores = localStorage.getItem("allScores");
+  if (allScores === null) {
+    allScores = [];
+  } else {
+    allScores = JSON.parse(allScores);
   }
+
   var usersScore = timeLeft;
   var usersInitials = document.querySelector(".initials").value.trim();
   var finalScore = {
     name: usersInitials,
     score: usersScore,
   };
-  oldScores.push(finalScore);
-  localStorage.setItem(highscores, JSON.stringify(oldScores));
+  allScores.push(finalScore);
+  var newScore = JSON.stringify(allScores);
+  localStorage.setItem("allScores", newScore);
 });
 
 startQuiz.addEventListener("click", quizHandler);
