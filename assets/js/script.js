@@ -1,6 +1,7 @@
 var i = 0;
 var currentSection = "";
 var timeLeft = 20;
+var clearTime;
 
 //sections
 var infoSection = document.querySelector(".info");
@@ -16,6 +17,8 @@ var answerBtn4 = document.querySelector(".answer4");
 var questionEl = document.querySelector(".question");
 var countdownEl = document.querySelector(".countdown");
 var answerMsgEl = document.querySelector(".answermsg");
+var currentScoreEl = document.querySelector(".score");
+var submitButtonEL = document.querySelector("#submitbtn");
 
 var questions = [
   {
@@ -116,7 +119,7 @@ function quizHandler() {
 
 function askQuestions() {
   countdownEl.textContent = timeLeft;
-  setInterval(timer, 1000);
+  clearTime = setInterval(timer, 1000);
   answerBtn1.addEventListener("click", function () {
     checkAnswer(answerBtn1);
   });
@@ -150,9 +153,7 @@ function checkAnswer(element) {
   }
   i++;
   if (i === questions.length) {
-    window.alert("no more questions");
-    currentSection = "results";
-    sectionHandler();
+    quizEnded();
   } else {
     questionHandler(i);
   }
@@ -164,6 +165,29 @@ function answerMsg(response) {
     answerMsgEl.textContent = null;
   }, 2000);
 }
+
+function quizEnded() {
+  clearInterval(clearTime);
+  currentSection = "results";
+  sectionHandler();
+  currentScoreEl.textContent = timeLeft;
+}
+
+submitButtonEL.addEventListener("click", function (event) {
+  event.preventDefault;
+  var oldScores = JSON.parse(localStorage.getItem(highscores));
+  if (oldScores === null) {
+    oldScores = Array();
+  }
+  var usersScore = timeLeft;
+  var usersInitials = document.querySelector(".initials").value.trim();
+  var finalScore = {
+    name: usersInitials,
+    score: usersScore,
+  };
+  oldScores.push(finalScore);
+  localStorage.setItem(highscores, JSON.stringify(oldScores));
+});
 
 startQuiz.addEventListener("click", quizHandler);
 
