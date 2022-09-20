@@ -1,6 +1,8 @@
 # Code Quiz
 
-<img src="./assets." alt="screenshot of the website" height="300px"/>
+<img src="./assets/images/quiz1.png" alt="screenshot of main quiz page" height="300px"/>
+<img src="./assets/images/quiz3.png" alt="screenshot of questions page" height="300px"/>
+<img src="./assets/images/quiz2.png" alt="screenshot of stored scores" height="300px"/>
 
 ## Purpose
 
