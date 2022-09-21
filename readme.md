@@ -1,8 +1,8 @@
 # Code Quiz
 
-<img src="./assets/images/quiz1.png" alt="screenshot of main quiz page" height="300px"/>
-<img src="./assets/images/quiz3.png" alt="screenshot of questions page" height="300px"/>
-<img src="./assets/images/quiz2.png" alt="screenshot of stored scores" height="300px"/>
+<img src="./images/quiz1.png" alt="screenshot of main quiz page" height="300px"/>
+<img src="./images/quiz3.png" alt="screenshot of questions page" height="300px"/>
+<img src="./images/quiz2.png" alt="screenshot of stored scores" height="300px"/>
 
 ## Purpose
 
@@ -18,9 +18,11 @@ To create a timed quiz on JavaScript fundamentals that stores high scores.
 
 ## Website
 
+https://hartsfieldt.github.io/yield-fruitfulness/
+
 ## Git Hub
 
-## Screencastify
+https://github.com/hartsfieldt/yield-fruitfulness
 
 ## Contribution
 
